@@ -1,0 +1,32 @@
+class SubstitutionCipher {
+    static String key = "QWERTYUIOPASDFGHJKLZXCVBNM";
+
+    static String encrypt(String text) {
+        text = text.toUpperCase();
+        String result = "";
+        for (char c : text.toCharArray()) {
+            if (c >= 'A' && c <= 'Z')
+                result += key.charAt(c - 'A');
+            else result += c;
+        }
+        return result;
+    }
+
+    static String decrypt(String text) {
+        String result = "";
+        for (char c : text.toCharArray()) {
+            int index = key.indexOf(c);
+            if (index != -1)
+                result += (char)('A' + index);
+            else result += c;
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        String msg = "HELLO";
+        String enc = encrypt(msg);
+        System.out.println(enc);
+        System.out.println(decrypt(enc));
+    }
+}
