@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    char *str = "Hello World";
+    int i = 0;
+
+    printf("AND with 127:\n");
+    while (str[i] != '\0') {
+        printf("%c", str[i] & 127);
+        i++;
+    }
+
+    i = 0;
+    printf("\nOR with 127:\n");
+    while (str[i] != '\0') {
+        printf("%c", str[i] | 127);
+        i++;
+    }
+
+    i = 0;
+    printf("\nXOR with 127:\n");
+    while (str[i] != '\0') {
+        printf("%c", str[i] ^ 127);
+        i++;
+    }
+    return 0;
+}
